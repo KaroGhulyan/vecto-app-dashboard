@@ -1,29 +1,42 @@
-import {UploadOutlined, UserOutlined, VideoCameraOutlined} from '@ant-design/icons';
-import {Layout, Menu} from 'antd';
-import React from 'react';
-import { PageHeader } from 'antd';
-const {Header, Content, Footer, Sider} = Layout;
+import { Layout } from "antd";
+import React from "react";
+import { PageHeader } from "antd";
+import { useLocation, useNavigate } from "react-router-dom";
+const { Content, Footer } = Layout;
 
 interface MainInterface {
-    children: React.ReactElement
+  children: React.ReactElement;
 }
 
-export const Main = ({children}:MainInterface) => {
-    return (
-        <Layout>
-            <PageHeader
-                className="site-page-header"
-                onBack={() => null}
-                title="Dashboard"
-                subTitle="Users"
-            />
-            <Content style={{margin: '24px 16px 0'}}>
-                <div className="site-layout-background" style={{padding: 24, minHeight: 360}}>
-                    {children}
-                </div>
-            </Content>
-            <Footer style={{textAlign: 'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
-        </Layout>
-    )
-}
+export const Main = ({ children }: MainInterface) => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
+  const onBack = () => {
+    navigate("/dashboard");
+  };
+  return (
+    <Layout>
+      {pathname !== "/dashboard" && (
+        <PageHeader
+          className="site-page-header"
+          onBack={onBack}
+          title={"Dashboard"}
+          subTitle="Admins"
+        />
+      )}
+
+      <Content style={{ margin: "24px 16px 0" }}>
+        <div
+          className="site-layout-background"
+          style={{ padding: 24, minHeight: 360 }}
+        >
+          {children}
+        </div>
+      </Content>
+      <Footer style={{ textAlign: "center" }}>
+        Ant Design ©2018 Created by Ant UED
+      </Footer>
+    </Layout>
+  );
+};

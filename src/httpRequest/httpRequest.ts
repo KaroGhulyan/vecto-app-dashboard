@@ -1,6 +1,10 @@
-import axios, { AxiosResponse } from 'axios'
-import { HTTPRequestDataTypes, HTTPRequestParamsTypes, HttpRequestProps } from './interfaces'
-import { httpHeader } from './httpHeader'
+import axios, { AxiosResponse } from "axios";
+import {
+  HTTPRequestDataTypes,
+  HTTPRequestParamsTypes,
+  HttpRequestProps,
+} from "./interfaces";
+import { httpHeader } from "./httpHeader";
 
 export default async ({
   data,
@@ -11,7 +15,10 @@ export default async ({
   cancelToken,
   headerType,
   responseType,
-}: HttpRequestProps<HTTPRequestDataTypes, HTTPRequestParamsTypes>): Promise<AxiosResponse> => {
+}: HttpRequestProps<
+  HTTPRequestDataTypes,
+  HTTPRequestParamsTypes
+>): Promise<AxiosResponse> => {
   const config = {
     url,
     data: data || null,
@@ -20,11 +27,11 @@ export default async ({
     headers: { ...httpHeader({ withoutToken, headerType }) },
     cancelToken: cancelToken || undefined,
     responseType,
-  }
+  };
 
   try {
-    return await axios(config)
+    return await axios(config);
   } catch (error) {
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
-}
+};
