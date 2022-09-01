@@ -6,8 +6,8 @@ import {
   editAdmin,
 } from "../store/appSlice";
 import { AxiosResponse } from "axios";
-import httpRequest from "../httpRequest";
-import { RequestTypes } from "../httpRequest/interfaces";
+import httpRequest from "../services/httpRequest";
+import { RequestTypes } from "../services/httpRequest/interfaces";
 import { useEffect, useState } from "react";
 import { AdminType } from "../interfaces";
 import { USERS_API } from "../config/apiConfig";

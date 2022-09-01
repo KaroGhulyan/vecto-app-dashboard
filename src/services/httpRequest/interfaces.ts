@@ -1,5 +1,5 @@
 import { CancelToken, Method } from "axios";
-import { AdminType } from "../interfaces";
+import { AdminType } from "../../interfaces";
 
 export enum RequestTypes {
   Get = "GET",
