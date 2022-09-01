@@ -15,7 +15,7 @@ export const AppDrawer = ({
     toggleSider();
   };
 
-  console.log(showSider, "dsadsa");
+
   return (
     <Drawer
       title="Add Admin User"

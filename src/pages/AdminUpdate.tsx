@@ -22,7 +22,6 @@ const validateMessages = {
 const AdminUpdate: React.FC = () => {
   const { updateAdmin, admin } = UseAdminsStore();
 
-  console.log(admin);
   const onFinish = (values: AdminType) => {
     updateAdmin(values);
   };
