@@ -16,8 +16,8 @@ const columns = [
     },
   },
   {
-    title: "Username",
-    dataIndex: "username",
+    title: "Website",
+    dataIndex: "website",
     defaultSortOrder: "descend",
     sorter: (a, b) => a.name.length - b.name.length,
   },
